@@ -3,6 +3,10 @@ using System.Drawing;
 
 namespace eu.sig.training.ch05.boardpanel.v1
 {
+    public struct Point { public int X; public int Y; }
+
+    public struct Dimensions { public int Width; public int Height; }
+
     public class BoardPanel
     {
         // tag::render[]
@@ -16,19 +20,19 @@ namespace eu.sig.training.ch05.boardpanel.v1
         /// <param name="y">The y position to start drawing.</param>
         /// <param name="w">The width of this square (in pixels.)</param>
         /// <param name="h">The height of this square (in pixels.)</param>
-        private void Render(Square square, Graphics g, int x, int y, int w, int h)
+        private void Render(Square square, Graphics g, Point p, Dimensions d)
         {
-            square.Sprite.Draw(g, x, y, w, h);
+            square.Sprite.Draw(g, p, d);
             foreach (Unit unit in square.Occupants)
             {
-                unit.Sprite.Draw(g, x, y, w, h);
+                unit.Sprite.Draw(g, p, d);
             }
         }
         // end::render[]
 
         private class Sprite
         {
-            public void Draw(Graphics g, int x, int y, int w, int h)
+            public void Draw(Graphics g, Point p, Dimensions d)
             {
 
             }
