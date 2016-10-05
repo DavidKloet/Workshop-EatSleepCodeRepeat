@@ -10,7 +10,9 @@ namespace Lab1
     {
         public int Multiply(int valueLeft, int valueRight)
         {
-            throw new NotImplementedException();
+            if (valueRight == 0 || valueRight == 0) throw new ArgumentOutOfRangeException("left or right is 0");
+
+            return valueLeft * valueRight;
         }
     }
 }
